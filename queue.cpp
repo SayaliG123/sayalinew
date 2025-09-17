@@ -3,6 +3,7 @@
 #define SIZE 40
 using namespace std;
 
+/// @brief 
 class Queue
 {
     private:int que[SIZE];
@@ -16,7 +17,7 @@ class Queue
     int Q_full(void);
     int Q_empty(void);
     void disp_Q(void);
-    void delete_Q(void);
+    int delete_Q(void);
     
 };
 void Queue::insert_Q(void)
