@@ -23,7 +23,7 @@ class matrix
     
     void accept_arr();
     void disp_array();
-    //void multi(arr &A);
+    matrix multi(matrix &B);
 
 };
 void matrix::accept_arr()
@@ -51,10 +51,26 @@ void matrix::disp_array()
         }
     }
 }
+matrix matrix::multi(matrix &B)
+{   
+    matrix result;
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;i<B.c;j++)
+        {   
+            result.arr[i][j]=0;
+            for(int k=0;k<c;k++)
+            {
+                result.arr[i][j] += arr[i][k] * B.arr[k][j];
+            }
+        }
+    }
+    return result;
+}
 
 int main()
 {
-    matrix A,B;
+    matrix A,B,C;
     cout<<"\nfirst matrix\n";
     A.accept_arr();
     cout<<"\nsecond matrix\n";
@@ -63,5 +79,8 @@ int main()
     A.disp_array();
     cout<<"\nyour second matrix B is\n";
     B.disp_array();
+    cout<<"multiplication of A ans b is\n";
+    C=A.multi(B);
+    C.disp_array();
 
 }
